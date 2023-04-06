@@ -27,5 +27,10 @@ namespace WindowsFormsApp1
         {
             Application.Exit();
         }
+
+        private void btnViajes_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
