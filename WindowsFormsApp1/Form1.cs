@@ -69,7 +69,9 @@ namespace WindowsFormsApp1
 
         private void label5_Click(object sender, EventArgs e)
         {
-
+            MenuInicio inicio = new MenuInicio();
+            this.Hide();
+            inicio.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)
