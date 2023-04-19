@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 //Agregar implementacion de base de datos 
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Drawing;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace WindowsFormsApp1
 {
@@ -52,10 +55,35 @@ namespace WindowsFormsApp1
 
         }
 
-        public void AgregarRegistroUsuario()
+        public void AgregarRegistroUsuario(string nombre,string apellido,string email, string clave)
         {
+            int id = ObtenerIdUsuario();
 
+            conexion.Open();
+            string sql = "INSERT INTO usuarios (idUsuario, nombre, apellido, email, contra, privilegios) " +
+                "VALUES (@id, @nombre, @apellido, @email, @contra, @privilegios)";
+
+            SqlCommand command = new SqlCommand(sql,conexion);
+
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@nombre", nombre);
+            command.Parameters.AddWithValue("@apellido", apellido);
+            command.Parameters.AddWithValue("@email", email);
+            command.Parameters.AddWithValue("@contra", clave);
+            command.Parameters.AddWithValue("@privilegios", "cliente");
+            command.ExecuteNonQuery();
+
+            conexion.Close();
         }
-        
+
+        public int ObtenerIdUsuario()
+        {
+            int idADevolver = 0;
+            conexion.Open();
+            SqlCommand command = new SqlCommand($"SELECT COUNT(*) FROM usuarios", conexion);
+            conexion.Close();
+
+            return (int)command.ExecuteScalar();
+        } 
     }
 }
