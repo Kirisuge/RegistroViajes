@@ -39,6 +39,7 @@
             this.btnCrearCuenta = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.textApellido = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // txtNom
@@ -166,12 +167,21 @@
             this.textApellido.Size = new System.Drawing.Size(199, 27);
             this.textApellido.TabIndex = 16;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(0)))), ((int)(((byte)(43)))));
+            this.panel1.Location = new System.Drawing.Point(560, -1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(396, 531);
+            this.panel1.TabIndex = 17;
+            // 
             // RegistrarCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(954, 521);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.textApellido);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnCrearCuenta);
@@ -204,5 +214,6 @@
         private System.Windows.Forms.Button btnCrearCuenta;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textApellido;
+        private System.Windows.Forms.Panel panel1;
     }
 }
