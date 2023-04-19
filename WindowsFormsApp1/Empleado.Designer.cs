@@ -33,9 +33,10 @@
             // 
             // btnViajes
             // 
-            this.btnViajes.Location = new System.Drawing.Point(126, 187);
+            this.btnViajes.Location = new System.Drawing.Point(202, 196);
+            this.btnViajes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnViajes.Name = "btnViajes";
-            this.btnViajes.Size = new System.Drawing.Size(75, 23);
+            this.btnViajes.Size = new System.Drawing.Size(56, 19);
             this.btnViajes.TabIndex = 0;
             this.btnViajes.Text = "Viajes";
             this.btnViajes.UseVisualStyleBackColor = true;
@@ -43,10 +44,11 @@
             // 
             // Empleado
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(954, 521);
             this.Controls.Add(this.btnViajes);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Empleado";
             this.Text = "Empleado";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Empleado_FormClosing);
