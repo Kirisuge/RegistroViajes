@@ -51,6 +51,11 @@ namespace WindowsFormsApp1
             return respesta;
 
         }
+
+        public void AgregarRegistroUsuario()
+        {
+
+        }
         
     }
 }
