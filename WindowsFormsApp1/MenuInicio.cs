@@ -26,7 +26,9 @@ namespace WindowsFormsApp1
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            RegistrarCuenta registro = new RegistrarCuenta();
+            this.Hide();
+            registro.Show();
         }
 
         private void MenuInicio_Load(object sender, EventArgs e)

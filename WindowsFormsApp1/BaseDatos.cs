@@ -35,8 +35,6 @@ namespace WindowsFormsApp1
             //Transformar la respuesta del query para poder leerla
             SqlDataReader reader = command.ExecuteReader();
 
-
-            
             if (reader.Read())
             {
 
@@ -57,11 +55,9 @@ namespace WindowsFormsApp1
 
         public void AgregarRegistroUsuario(string nombre,string apellido,string email, string clave)
         {
-            int id = ObtenerIdUsuario();
-
             conexion.Open();
-            string sql = "INSERT INTO usuarios (idUsuario, nombre, apellido, email, contra, privilegios) " +
-                "VALUES (@id, @nombre, @apellido, @email, @contra, @privilegios)";
+            string sql = "INSERT INTO usuarios (nombre, apellido, email, contra, privilegios) " +
+                "VALUES (@nombre, @apellido, @email, @contra, @privilegios)";
 
             SqlCommand command = new SqlCommand(sql,conexion);
 
@@ -75,15 +71,28 @@ namespace WindowsFormsApp1
 
             conexion.Close();
         }
-
-        public int ObtenerIdUsuario()
+        public bool EmailExiste(string email)
         {
-            int idADevolver = 0;
             conexion.Open();
-            SqlCommand command = new SqlCommand($"SELECT COUNT(*) FROM usuarios", conexion);
+
+            string query = "SELECT COUNT(*) FROM usuarios WHERE email = @Email";
+            int count = 0;
+
+            SqlCommand command = new SqlCommand(query, conexion);
+            command.Parameters.AddWithValue("@Email", email);
+            count = (int)command.ExecuteScalar();
+
             conexion.Close();
 
-            return (int)command.ExecuteScalar();
-        } 
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }
