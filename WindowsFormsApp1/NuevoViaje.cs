@@ -12,9 +12,18 @@ namespace WindowsFormsApp1
 {
     public partial class NuevoViaje : Form
     {
-        public NuevoViaje()
+        Empleado empleadoForms;
+
+        public Empleado EmpleadoForms
+        {
+            get { return empleadoForms; }
+            set { empleadoForms = value; }
+        }
+
+        public NuevoViaje(Empleado empleadoForms)
         {
             InitializeComponent();
+            EmpleadoForms = empleadoForms;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -57,14 +66,14 @@ namespace WindowsFormsApp1
             //Tomar los valores de las entradas de texto y horas
             string lugarSalida = cBSalida.Text;
             string destino = cBDestino.Text;
-            DateTime horarioSalida = dTPSalida.Value;
-            DateTime horarioLlegada = dTPLlegada.Value;
+            DateTime diaSalida = dTPSalida.Value.Date;
+            string horaSalida = cBHoraSalida.Text;
             string capacidad = textCapacidad.Text.Trim();
             string tarifa = textTarifa.Text.Trim();
 
             //Hacer las comprobaciones pertinentes
             //Comprobar que ninguno este vacio
-            if (lugarSalida == string.Empty || destino == string.Empty || horarioSalida == DateTime.Now || horarioLlegada == DateTime.Now || capacidad == string.Empty || tarifa == string.Empty)
+            if (lugarSalida == string.Empty || destino == string.Empty || horaSalida == string.Empty || capacidad == string.Empty || tarifa == string.Empty || diaSalida == DateTime.Today)
             {
                 RegistroInvalido("Favor completar todos los campos");
                 return;
@@ -77,13 +86,6 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            //Compara las dos fechas
-            if (CompararFechas(horarioSalida,horarioLlegada) >= 0)
-            {
-                RegistroInvalido("Favor ingrese fechas válidas.");
-                return;
-            }
-
             //Comprobar que la tarifa y la capacidad son numeros enteros
             if (ComprobarSiEsNumero(capacidad) == false || ComprobarSiEsNumero(tarifa) == false)
             {
@@ -93,7 +95,7 @@ namespace WindowsFormsApp1
 
             //Crea objeto base de datos y se llama al metodo para agregar un viaje 
             BaseDatos db = new BaseDatos();
-            db.AgregarNuevoViaje(lugarSalida, destino,horarioSalida,horarioLlegada,int.Parse(capacidad),int.Parse(tarifa));
+            db.AgregarNuevoViaje(lugarSalida, destino,diaSalida,horaSalida,int.Parse(capacidad),int.Parse(tarifa));
 
             //Muestra un mensaje y limpia los campos
             RegistroValido();
@@ -102,6 +104,7 @@ namespace WindowsFormsApp1
         private void RegistroValido()
         {
             MessageBox.Show("¡Viaje creado exitosamente!");
+            EmpleadoForms.ActualizarTabla();
             LimpiarCampos();
         }
 
@@ -118,23 +121,25 @@ namespace WindowsFormsApp1
             return int.TryParse(cadena, out numero);
         }
 
-        //devuelve un numeor menor que cero si salida es anterior a llegada
-        //devuelve 0 si coinciden
-        //devuelve un numero mayor a cero si salida es posterior a llegada
-        private int CompararFechas(DateTime salida, DateTime llegada)
-        {
-            return DateTime.Compare(salida, llegada);
-        }
-
         //Reestablece los valores de los campos
         private void LimpiarCampos()
         {
             cBSalida.Text= string.Empty;
             cBDestino.Text= string.Empty;
-            dTPLlegada.Value = DateTime.Now;
+            cBHoraSalida.Text = string.Empty;
             dTPSalida.Value= DateTime.Now;
             textCapacidad.Clear();
             textTarifa.Clear();
+        }
+
+        private void NuevoViaje_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dTPSalida_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

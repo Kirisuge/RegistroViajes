@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
 
         private void Empleado_Load(object sender, EventArgs e)
         {
-
+            ActualizarTabla();
         }
 
 
@@ -50,8 +50,14 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            NuevoViaje nv = new NuevoViaje();
-            ShowDialog(nv);
+            NuevoViaje nv = new NuevoViaje(this);
+            nv.ShowDialog();
+        }
+
+        public void ActualizarTabla()
+        {
+            BaseDatos db = new BaseDatos();
+            db.ActualizarTablaViajes("SELECT idViaje, lugarSalida, destino, diaSalida, horaSalida, capacidad, tarifa FROM viajes", dGVViajesDisponibles);
         }
     }
 }

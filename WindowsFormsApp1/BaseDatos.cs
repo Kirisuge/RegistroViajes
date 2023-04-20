@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Data;
 
 namespace WindowsFormsApp1
 {
@@ -72,21 +73,21 @@ namespace WindowsFormsApp1
             conexion.Close();
         }
 
-        public void AgregarNuevoViaje(string lugarSalida, string destino, DateTime horSalida, DateTime horLlegada,int capacidad, int tarifa)
+        public void AgregarNuevoViaje(string lugarSalida, string destino, DateTime diaSalida, string horaSalida,int capacidad, int tarifa)
         {
             conexion.Open();
-            string sql = "INSERT INTO viajes (lugarSalida, destino, horSalida, horLlegada, capacidad,tarifa) " +
-                "VALUES (@lugarSalida, @destino, @horSalida, @horLlegada, @capacidad, @tarifa)";
+            string sql = "INSERT INTO viajes (lugarSalida, destino, diaSalida, horaSalida, capacidad, tarifa) " +
+                "VALUES (@lugarSalida, @destino, @diaSalida, @horaSalida, @capacidad, @tarifa)";
 
             SqlCommand command = new SqlCommand(sql, conexion);
-            /*
+            
             command.Parameters.AddWithValue("@lugarSalida", lugarSalida);
             command.Parameters.AddWithValue("@destino", destino);
-            command.Parameters.AddWithValue("@horSalida", horSalida);
-            command.Parameters.AddWithValue("@horLlegada", horLlegada);
+            command.Parameters.AddWithValue("@diaSalida", diaSalida);
+            command.Parameters.AddWithValue("@horaSalida", horaSalida);
             command.Parameters.AddWithValue("@capacidad", capacidad);
             command.Parameters.AddWithValue("@tarifa", tarifa);
-            */
+            
             command.ExecuteNonQuery();
 
             conexion.Close();
@@ -113,6 +114,20 @@ namespace WindowsFormsApp1
                 return false;
             }
 
+        }
+
+        public void ActualizarTablaViajes(string query, DataGridView dgv)
+        {
+            conexion.Open();
+            SqlCommand command = new SqlCommand(query, conexion);
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+
+            DataTable dataTable= new DataTable();
+            adapter.Fill(dataTable);
+            dgv.DataSource = dataTable;
+
+            conexion.Close();
         }
     }
 }

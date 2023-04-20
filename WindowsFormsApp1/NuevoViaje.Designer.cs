@@ -31,7 +31,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.dTPSalida = new System.Windows.Forms.DateTimePicker();
-            this.dTPLlegada = new System.Windows.Forms.DateTimePicker();
             this.cBSalida = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textCapacidad = new System.Windows.Forms.TextBox();
             this.btnCrearViaje = new System.Windows.Forms.Button();
+            this.cBHoraSalida = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,14 +73,7 @@
             this.dTPSalida.Name = "dTPSalida";
             this.dTPSalida.Size = new System.Drawing.Size(311, 27);
             this.dTPSalida.TabIndex = 1;
-            // 
-            // dTPLlegada
-            // 
-            this.dTPLlegada.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dTPLlegada.Location = new System.Drawing.Point(384, 254);
-            this.dTPLlegada.Name = "dTPLlegada";
-            this.dTPLlegada.Size = new System.Drawing.Size(311, 27);
-            this.dTPLlegada.TabIndex = 2;
+            this.dTPSalida.ValueChanged += new System.EventHandler(this.dTPSalida_ValueChanged);
             // 
             // cBSalida
             // 
@@ -104,9 +97,9 @@
             this.label3.Location = new System.Drawing.Point(27, 223);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 28);
+            this.label3.Size = new System.Drawing.Size(121, 28);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Horario salida:";
+            this.label3.Text = "Dia de salida:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
@@ -116,9 +109,9 @@
             this.label2.Location = new System.Drawing.Point(379, 223);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 28);
+            this.label2.Size = new System.Drawing.Size(133, 28);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Horario llegada:";
+            this.label2.Text = "Hora de salida:";
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // label4
@@ -217,12 +210,35 @@
             this.btnCrearViaje.UseVisualStyleBackColor = false;
             this.btnCrearViaje.Click += new System.EventHandler(this.btnCrearViaje_Click);
             // 
+            // cBHoraSalida
+            // 
+            this.cBHoraSalida.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBHoraSalida.FormattingEnabled = true;
+            this.cBHoraSalida.Items.AddRange(new object[] {
+            "7:00",
+            "8:00",
+            "9:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00"});
+            this.cBHoraSalida.Location = new System.Drawing.Point(384, 250);
+            this.cBHoraSalida.Name = "cBHoraSalida";
+            this.cBHoraSalida.Size = new System.Drawing.Size(192, 31);
+            this.cBHoraSalida.TabIndex = 15;
+            // 
             // NuevoViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(796, 521);
+            this.Controls.Add(this.cBHoraSalida);
             this.Controls.Add(this.btnCrearViaje);
             this.Controls.Add(this.textCapacidad);
             this.Controls.Add(this.label7);
@@ -234,11 +250,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cBSalida);
-            this.Controls.Add(this.dTPLlegada);
             this.Controls.Add(this.dTPSalida);
             this.Controls.Add(this.panel1);
             this.Name = "NuevoViaje";
             this.Text = "NuevoViaje";
+            this.Load += new System.EventHandler(this.NuevoViaje_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -251,7 +267,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dTPSalida;
-        private System.Windows.Forms.DateTimePicker dTPLlegada;
         private System.Windows.Forms.ComboBox cBSalida;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -263,5 +278,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textCapacidad;
         private System.Windows.Forms.Button btnCrearViaje;
+        private System.Windows.Forms.ComboBox cBHoraSalida;
     }
 }

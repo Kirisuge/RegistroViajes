@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnViajes = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,6 +41,12 @@
             this.prueba = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVViajesDisponibles)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +69,7 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(-10, -4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(193, 524);
+            this.panel1.Size = new System.Drawing.Size(156, 524);
             this.panel1.TabIndex = 1;
             // 
             // label2
@@ -70,7 +77,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Poppins Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(71, 472);
+            this.label2.Location = new System.Drawing.Point(54, 472);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 26);
             this.label2.TabIndex = 5;
@@ -85,7 +92,7 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(9, 230);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(184, 55);
+            this.button1.Size = new System.Drawing.Size(147, 55);
             this.button1.TabIndex = 2;
             this.button1.Text = "Viajes";
             this.button1.UseVisualStyleBackColor = true;
@@ -94,7 +101,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poppins Medium", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(199, 38);
+            this.label1.Location = new System.Drawing.Point(153, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(332, 56);
             this.label1.TabIndex = 2;
@@ -103,32 +110,41 @@
             // 
             // dGVViajesDisponibles
             // 
-            this.dGVViajesDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dGVViajesDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dGVViajesDisponibles.BackgroundColor = System.Drawing.Color.White;
             this.dGVViajesDisponibles.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dGVViajesDisponibles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dGVViajesDisponibles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(0)))), ((int)(((byte)(43)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dGVViajesDisponibles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(0)))), ((int)(((byte)(43)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dGVViajesDisponibles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dGVViajesDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGVViajesDisponibles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.prueba,
             this.Column2,
-            this.Column1});
+            this.Column1,
+            this.Salida,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Editar,
+            this.Eliminar});
             this.dGVViajesDisponibles.EnableHeadersVisualStyles = false;
-            this.dGVViajesDisponibles.Location = new System.Drawing.Point(209, 159);
+            this.dGVViajesDisponibles.Location = new System.Drawing.Point(156, 159);
             this.dGVViajesDisponibles.Name = "dGVViajesDisponibles";
+            this.dGVViajesDisponibles.ReadOnly = true;
             this.dGVViajesDisponibles.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.dGVViajesDisponibles.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dGVViajesDisponibles.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dGVViajesDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGVViajesDisponibles.Size = new System.Drawing.Size(722, 335);
+            this.dGVViajesDisponibles.Size = new System.Drawing.Size(790, 335);
             this.dGVViajesDisponibles.TabIndex = 3;
             this.dGVViajesDisponibles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -139,7 +155,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(209, 97);
+            this.button2.Location = new System.Drawing.Point(163, 97);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(142, 41);
             this.button2.TabIndex = 4;
@@ -149,21 +165,81 @@
             // 
             // prueba
             // 
-            this.prueba.HeaderText = "Column1";
+            this.prueba.DataPropertyName = "idViaje";
+            this.prueba.FillWeight = 54.58221F;
+            this.prueba.HeaderText = "#";
             this.prueba.Name = "prueba";
-            this.prueba.Width = 92;
+            this.prueba.ReadOnly = true;
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Column1";
+            this.Column2.DataPropertyName = "lugarSalida";
+            this.Column2.FillWeight = 106.1575F;
+            this.Column2.HeaderText = "Suc. salida";
             this.Column2.Name = "Column2";
-            this.Column2.Width = 92;
+            this.Column2.ReadOnly = true;
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "Column1";
+            this.Column1.DataPropertyName = "destino";
+            this.Column1.FillWeight = 147.9656F;
+            this.Column1.HeaderText = "Destino";
             this.Column1.Name = "Column1";
-            this.Column1.Width = 92;
+            this.Column1.ReadOnly = true;
+            // 
+            // Salida
+            // 
+            this.Salida.DataPropertyName = "diaSalida";
+            this.Salida.FillWeight = 92.39922F;
+            this.Salida.HeaderText = "Día salida";
+            this.Salida.Name = "Salida";
+            this.Salida.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "horaSalida";
+            this.Column3.FillWeight = 131.7042F;
+            this.Column3.HeaderText = "Hora salida";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "capacidad";
+            this.Column4.FillWeight = 130.0381F;
+            this.Column4.HeaderText = "Capacidad";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "tarifa";
+            this.Column5.FillWeight = 85.64654F;
+            this.Column5.HeaderText = "Tarifa";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Editar
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            this.Editar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Editar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Editar.HeaderText = "";
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Text = "Editar";
+            this.Editar.UseColumnTextForButtonValue = true;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.UseColumnTextForButtonValue = true;
             // 
             // Empleado
             // 
@@ -201,5 +277,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn prueba;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Salida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewButtonColumn Editar;
+        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }
 }
