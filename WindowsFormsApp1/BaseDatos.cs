@@ -87,11 +87,44 @@ namespace WindowsFormsApp1
             command.Parameters.AddWithValue("@horaSalida", horaSalida);
             command.Parameters.AddWithValue("@capacidad", capacidad);
             command.Parameters.AddWithValue("@tarifa", tarifa);
-            
             command.ExecuteNonQuery();
 
             conexion.Close();
         }
+
+
+        public void ActualizarViaje(int id, string lugarSalida, string destino, DateTime diaSalida, string horaSalida, int capacidad, int tarifa)
+        {
+            conexion.Open();
+            string query = "UPDATE viajes SET lugarSalida = @lugarSalida, destino = @destino, " +
+                "diaSalida = @diaSalida, horaSalida = @horaSalida, capacidad = @capacidad, " +
+                "tarifa = @tarifa WHERE idViaje = @id";
+
+            SqlCommand command = new SqlCommand(query, conexion);
+
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@lugarSalida", lugarSalida);
+            command.Parameters.AddWithValue("@destino", destino);
+            command.Parameters.AddWithValue("@diaSalida", diaSalida);
+            command.Parameters.AddWithValue("@horaSalida", horaSalida);
+            command.Parameters.AddWithValue("@capacidad", capacidad);
+            command.Parameters.AddWithValue("@tarifa", tarifa);
+            command.ExecuteNonQuery();
+            conexion.Close();
+
+        }
+
+        public void EliminarViaje (int id)
+        {
+            conexion.Open();
+            string query = "DELETE FROM viajes WHERE idViaje = @id";
+            SqlCommand command = new SqlCommand(query, conexion);
+
+            command.Parameters.AddWithValue("@id", id);
+            command.ExecuteNonQuery();
+            conexion.Close();
+        }
+
         public bool EmailExiste(string email)
         {
             conexion.Open();

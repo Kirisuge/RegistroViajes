@@ -12,6 +12,8 @@ namespace WindowsFormsApp1
 {
     public partial class Empleado : Form
     {
+        BaseDatos db = new BaseDatos();
+
         public Empleado()
         {
             InitializeComponent();
@@ -28,24 +30,22 @@ namespace WindowsFormsApp1
             Application.Exit();
         }
 
-        private void btnViajes_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (dGVViajesDisponibles.Columns[e.ColumnIndex].Name == "Editar")
+            {
+                 EditarViaje edtViaje = new EditarViaje(this,dGVViajesDisponibles,e);
+                 edtViaje.ShowDialog();
+            }
+            if (dGVViajesDisponibles.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                //Muestra una ventana de confirmacion y elimina el viaje seleccionado si se presiona Si
+                if (MessageBox.Show("Se eliminará el viaje seleccionado, ¿desea continua?","Advertencia", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+                {
+                    db.EliminarViaje(int.Parse(dGVViajesDisponibles.Rows[e.RowIndex].Cells[2].Value.ToString()));
+                    ActualizarTabla();
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace WindowsFormsApp1
 
         public void ActualizarTabla()
         {
-            BaseDatos db = new BaseDatos();
+            
             db.ActualizarTablaViajes("SELECT idViaje, lugarSalida, destino, diaSalida, horaSalida, capacidad, tarifa FROM viajes", dGVViajesDisponibles);
         }
     }
