@@ -71,6 +71,26 @@ namespace WindowsFormsApp1
 
             conexion.Close();
         }
+
+        public void AgregarNuevoViaje(string lugarSalida, string destino, DateTime horSalida, DateTime horLlegada,int capacidad, int tarifa)
+        {
+            conexion.Open();
+            string sql = "INSERT INTO viajes (lugarSalida, destino, horSalida, horLlegada, capacidad,tarifa) " +
+                "VALUES (@lugarSalida, @destino, @horSalida, @horLlegada, @capacidad, @tarifa)";
+
+            SqlCommand command = new SqlCommand(sql, conexion);
+            /*
+            command.Parameters.AddWithValue("@lugarSalida", lugarSalida);
+            command.Parameters.AddWithValue("@destino", destino);
+            command.Parameters.AddWithValue("@horSalida", horSalida);
+            command.Parameters.AddWithValue("@horLlegada", horLlegada);
+            command.Parameters.AddWithValue("@capacidad", capacidad);
+            command.Parameters.AddWithValue("@tarifa", tarifa);
+            */
+            command.ExecuteNonQuery();
+
+            conexion.Close();
+        }
         public bool EmailExiste(string email)
         {
             conexion.Open();
