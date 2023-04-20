@@ -130,7 +130,6 @@ namespace WindowsFormsApp1
 
         private void RegistroNoValido(string mensaje)
         {
-            LimpiarTextBox();
             MessageBox.Show(mensaje);
         }
 

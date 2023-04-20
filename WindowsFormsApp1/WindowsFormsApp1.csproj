@@ -86,6 +86,12 @@
     <Compile Include="MenuInicio.Designer.cs">
       <DependentUpon>MenuInicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="NuevoViaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoViaje.Designer.cs">
+      <DependentUpon>NuevoViaje.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrarCuenta.cs">
@@ -105,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuInicio.resx">
       <DependentUpon>MenuInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevoViaje.resx">
+      <DependentUpon>NuevoViaje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

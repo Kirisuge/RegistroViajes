@@ -61,7 +61,7 @@ namespace WindowsFormsApp1
 
             SqlCommand command = new SqlCommand(sql,conexion);
 
-            command.Parameters.AddWithValue("@id", id);
+            //command.Parameters.AddWithValue("@id", id);
             command.Parameters.AddWithValue("@nombre", nombre);
             command.Parameters.AddWithValue("@apellido", apellido);
             command.Parameters.AddWithValue("@email", email);
