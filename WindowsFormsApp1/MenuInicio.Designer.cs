@@ -63,7 +63,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.Logo_1;
-            this.pictureBox1.Location = new System.Drawing.Point(292, -43);
+            this.pictureBox1.Location = new System.Drawing.Point(304, -39);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(353, 312);
             this.pictureBox1.TabIndex = 3;
