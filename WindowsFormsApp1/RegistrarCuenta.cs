@@ -78,9 +78,9 @@ namespace WindowsFormsApp1
         private void RegistroValido()
         {
             LimpiarTextBox();
-            Form1 ini= new Form1();
+            Form1 InicioSesion= new Form1();
             this.Hide();
-            ini.Show();
+            InicioSesion.Show();
         }
 
         private bool ClaveEsValida (string clave)
