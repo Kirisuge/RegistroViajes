@@ -57,10 +57,21 @@ namespace WindowsFormsApp1
             if (dGVViajesReservados.Columns[e.ColumnIndex].Name == "Cancelar")
             {
                 db.CancelarViaje(idUsuario, dGVViajesReservados.Rows[e.RowIndex].Cells[1].Value.ToString());
-                MessageBox.Show("Viaje cancelado.");
                 ActualizarTabla();
+                MessageBox.Show("Viaje cancelado.");
+
 
             }
+        }
+
+        private void ViajesReservados_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
+        private void ViajesReservados_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

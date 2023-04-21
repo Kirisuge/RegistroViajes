@@ -187,8 +187,14 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            string queryViajes = "SELECT idViaje, lugarSalida, destino, diaSalida, horaSalida FROM viajes WHERE idViaje IN (" + string.Join(",", viajesUsuario) + ")";
+            string queryViajes = "SELECT v.idViaje, v.lugarSalida, v.destino, v.diaSalida, v.horaSalida, " +
+                     "(SELECT COUNT(*) FROM boletos WHERE idViaje = v.idViaje AND idCliente = @idUsuario) AS Boletos " +
+                     "FROM viajes v " +
+                     "WHERE v.idViaje IN (" + string.Join(",", viajesUsuario) + ")";
+
             SqlCommand commandViajes = new SqlCommand(queryViajes, conexion);
+            commandViajes.Parameters.AddWithValue("@idUsuario", idUsuario);
+
 
             SqlDataAdapter adapter = new SqlDataAdapter(commandViajes);
 
@@ -217,13 +223,12 @@ namespace WindowsFormsApp1
         public void CancelarViaje(string idUsuario, string idViaje)
         {
             conexion.Open();
-            string query = "DELETE FROM boletos WHERE idViaje = @idViaje AND idCliente = @idUsuario";
+            string query = "DELETE TOP (1) FROM boletos WHERE idViaje = @idViaje AND idCliente = @idUsuario";
 
             SqlCommand command = new SqlCommand(query, conexion);
             command.Parameters.AddWithValue("@idViaje", idViaje);
             command.Parameters.AddWithValue("@idUsuario", idUsuario);
             command.ExecuteNonQuery();
-
 
             conexion.Close();
         }
