@@ -59,5 +59,15 @@ namespace WindowsFormsApp1
             
             db.ActualizarTablaViajes("SELECT idViaje, lugarSalida, destino, diaSalida, horaSalida, duracionEstimada, capacidad, tarifa  FROM viajes", dGVViajesDisponibles);
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea cerrar sesión?", "Advertencia", MessageBoxButtons.YesNoCancel) == DialogResult.Yes);
+            {
+                MenuInicio inicio = new MenuInicio();
+                this.Hide();
+                inicio.Show();
+            }
+        }
     }
 }
