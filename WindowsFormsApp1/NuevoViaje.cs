@@ -67,13 +67,15 @@ namespace WindowsFormsApp1
             string lugarSalida = cBSalida.Text;
             string destino = cBDestino.Text;
             DateTime diaSalida = dTPSalida.Value.Date;
-            string horaSalida = cBHoraSalida.Text;
+            DateTime horaSalida = dtpHoraSalida.Value;
+            DateTime duracionEstimada = dtpTiempoEstimado.Value;
             string capacidad = textCapacidad.Text.Trim();
             string tarifa = textTarifa.Text.Trim();
 
+
             //Hacer las comprobaciones pertinentes
             //Comprobar que ninguno este vacio
-            if (lugarSalida == string.Empty || destino == string.Empty || horaSalida == string.Empty || capacidad == string.Empty || tarifa == string.Empty || diaSalida == DateTime.Today)
+            if (lugarSalida == string.Empty || destino == string.Empty || capacidad == string.Empty || tarifa == string.Empty || diaSalida == DateTime.Today)
             {
                 RegistroInvalido("Favor completar todos los campos");
                 return;
@@ -95,7 +97,7 @@ namespace WindowsFormsApp1
 
             //Crea objeto base de datos y se llama al metodo para agregar un viaje 
             BaseDatos db = new BaseDatos();
-            db.AgregarNuevoViaje(lugarSalida, destino,diaSalida,horaSalida,int.Parse(capacidad),int.Parse(tarifa));
+            db.AgregarNuevoViaje(lugarSalida,destino,diaSalida,horaSalida,duracionEstimada,int.Parse(capacidad),int.Parse(tarifa));
 
             //Muestra un mensaje y limpia los campos
             RegistroValido();
@@ -126,8 +128,9 @@ namespace WindowsFormsApp1
         {
             cBSalida.Text= string.Empty;
             cBDestino.Text= string.Empty;
-            cBHoraSalida.Text = string.Empty;
             dTPSalida.Value= DateTime.Now;
+            dtpTiempoEstimado.Value= DateTime.Now;
+            dtpHoraSalida.Value= DateTime.Now;
             textCapacidad.Clear();
             textTarifa.Clear();
         }
@@ -135,9 +138,28 @@ namespace WindowsFormsApp1
         private void NuevoViaje_Load(object sender, EventArgs e)
         {
 
+            //Hacer que el los DateTimePickers solo muestren la hora
+            dtpHoraSalida.Format = DateTimePickerFormat.Custom;
+            dtpHoraSalida.CustomFormat = "HH:mm"; 
+            dtpHoraSalida.ShowUpDown = true;
+
+
+            dtpTiempoEstimado.Format = DateTimePickerFormat.Custom;
+            dtpTiempoEstimado.CustomFormat = "HH:mm";
+            dtpTiempoEstimado.ShowUpDown = true;
         }
 
         private void dTPSalida_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
         }

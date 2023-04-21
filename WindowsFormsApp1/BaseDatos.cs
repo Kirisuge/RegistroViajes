@@ -73,31 +73,33 @@ namespace WindowsFormsApp1
             conexion.Close();
         }
 
-        public void AgregarNuevoViaje(string lugarSalida, string destino, DateTime diaSalida, string horaSalida,int capacidad, int tarifa)
+        public void AgregarNuevoViaje(string lugarSalida, string destino, DateTime diaSalida, DateTime horaSalida, DateTime duracion, int capacidad, int tarifa)
         {
             conexion.Open();
-            string sql = "INSERT INTO viajes (lugarSalida, destino, diaSalida, horaSalida, capacidad, tarifa) " +
-                "VALUES (@lugarSalida, @destino, @diaSalida, @horaSalida, @capacidad, @tarifa)";
+            string sql = "INSERT INTO viajes (lugarSalida, destino, diaSalida, horaSalida, duracionEstimada, capacidad, tarifa) " +
+                "VALUES (@lugarSalida, @destino, @diaSalida, @horaSalida, @duracion, @capacidad, @tarifa) ";
 
             SqlCommand command = new SqlCommand(sql, conexion);
             
             command.Parameters.AddWithValue("@lugarSalida", lugarSalida);
             command.Parameters.AddWithValue("@destino", destino);
             command.Parameters.AddWithValue("@diaSalida", diaSalida);
-            command.Parameters.AddWithValue("@horaSalida", horaSalida);
+            command.Parameters.AddWithValue("@horaSalida", horaSalida.TimeOfDay);
+            command.Parameters.AddWithValue("@duracion", duracion.TimeOfDay);
             command.Parameters.AddWithValue("@capacidad", capacidad);
             command.Parameters.AddWithValue("@tarifa", tarifa);
+
             command.ExecuteNonQuery();
 
             conexion.Close();
         }
 
 
-        public void ActualizarViaje(int id, string lugarSalida, string destino, DateTime diaSalida, string horaSalida, int capacidad, int tarifa)
+        public void ActualizarViaje(int id, string lugarSalida, string destino, DateTime diaSalida, DateTime horaSalida, DateTime duracion, int capacidad, int tarifa)
         {
             conexion.Open();
             string query = "UPDATE viajes SET lugarSalida = @lugarSalida, destino = @destino, " +
-                "diaSalida = @diaSalida, horaSalida = @horaSalida, capacidad = @capacidad, " +
+                "diaSalida = @diaSalida, horaSalida = @horaSalida, duracionEstimada = @duracion, capacidad = @capacidad, " +
                 "tarifa = @tarifa WHERE idViaje = @id";
 
             SqlCommand command = new SqlCommand(query, conexion);
@@ -106,7 +108,8 @@ namespace WindowsFormsApp1
             command.Parameters.AddWithValue("@lugarSalida", lugarSalida);
             command.Parameters.AddWithValue("@destino", destino);
             command.Parameters.AddWithValue("@diaSalida", diaSalida);
-            command.Parameters.AddWithValue("@horaSalida", horaSalida);
+            command.Parameters.AddWithValue("@horaSalida", horaSalida.TimeOfDay);
+            command.Parameters.AddWithValue("@duracion", duracion.TimeOfDay);
             command.Parameters.AddWithValue("@capacidad", capacidad);
             command.Parameters.AddWithValue("@tarifa", tarifa);
             command.ExecuteNonQuery();

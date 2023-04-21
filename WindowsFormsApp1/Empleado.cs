@@ -57,7 +57,7 @@ namespace WindowsFormsApp1
         public void ActualizarTabla()
         {
             
-            db.ActualizarTablaViajes("SELECT idViaje, lugarSalida, destino, diaSalida, horaSalida, capacidad, tarifa FROM viajes", dGVViajesDisponibles);
+            db.ActualizarTablaViajes("SELECT idViaje, lugarSalida, destino, diaSalida, horaSalida, duracionEstimada, capacidad, tarifa  FROM viajes", dGVViajesDisponibles);
         }
     }
 }

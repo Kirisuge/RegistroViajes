@@ -33,9 +33,10 @@ namespace WindowsFormsApp1
             cBSalida.Text = dgv.Rows[cellEvent.RowIndex].Cells[3].Value.ToString();
             cBDestino.Text = dgv.Rows[cellEvent.RowIndex].Cells[4].Value.ToString();
             dTPSalida.Text = dgv.Rows[cellEvent.RowIndex].Cells[5].Value.ToString();
-            cBHoraSalida.Text = dgv.Rows[cellEvent.RowIndex].Cells[6].Value.ToString();
-            textCapacidad.Text = dgv.Rows[cellEvent.RowIndex].Cells[7].Value.ToString();
-            textTarifa.Text = dgv.Rows[cellEvent.RowIndex].Cells[8].Value.ToString();
+            dtpHoraSalida.Text = dgv.Rows[cellEvent.RowIndex].Cells[6].Value.ToString();
+            dtpTiempoEstimado.Text = dgv.Rows[cellEvent.RowIndex].Cells[7].Value.ToString();
+            textCapacidad.Text = dgv.Rows[cellEvent.RowIndex].Cells[8].Value.ToString();
+            textTarifa.Text = dgv.Rows[cellEvent.RowIndex].Cells[9].Value.ToString();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -48,7 +49,8 @@ namespace WindowsFormsApp1
             string lugarSalida = cBSalida.Text;
             string destino = cBDestino.Text;
             DateTime diaSalida = dTPSalida.Value.Date;
-            string horaSalida = cBHoraSalida.Text;
+            DateTime horaSalida = dtpHoraSalida.Value;
+            DateTime duracionEstimada = dtpTiempoEstimado.Value;
             string capacidad = textCapacidad.Text.Trim();
             string tarifa = textTarifa.Text.Trim();
 
@@ -74,7 +76,7 @@ namespace WindowsFormsApp1
             }
 
             BaseDatos db = new BaseDatos();
-            db.ActualizarViaje(idViaje,lugarSalida,destino,diaSalida,horaSalida,int.Parse(capacidad),int.Parse(tarifa));
+            db.ActualizarViaje(idViaje,lugarSalida,destino,diaSalida,horaSalida,duracionEstimada,int.Parse(capacidad),int.Parse(tarifa));
             empleadoForm.ActualizarTabla();
             MessageBox.Show("¡Viaje modificado exitosamente!");
             this.Hide();
@@ -89,6 +91,20 @@ namespace WindowsFormsApp1
         {
             int numero;
             return int.TryParse(cadena, out numero);
+        }
+
+        private void EditarViaje_Load(object sender, EventArgs e)
+        {
+
+            //Hace que los time pickers puedan escoger tiempo
+            dtpHoraSalida.Format = DateTimePickerFormat.Custom;
+            dtpHoraSalida.CustomFormat = "HH:mm";
+            dtpHoraSalida.ShowUpDown = true;
+
+
+            dtpTiempoEstimado.Format = DateTimePickerFormat.Custom;
+            dtpTiempoEstimado.CustomFormat = "HH:mm";
+            dtpTiempoEstimado.ShowUpDown = true;
         }
     }
 }

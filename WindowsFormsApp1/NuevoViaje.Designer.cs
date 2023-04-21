@@ -42,7 +42,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textCapacidad = new System.Windows.Forms.TextBox();
             this.btnCrearViaje = new System.Windows.Forms.Button();
-            this.cBHoraSalida = new System.Windows.Forms.ComboBox();
+            this.dtpHoraSalida = new System.Windows.Forms.DateTimePicker();
+            this.dtpTiempoEstimado = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,7 +159,7 @@
             "Punta Cana",
             "Santiago",
             "Barahona"});
-            this.cBDestino.Location = new System.Drawing.Point(384, 163);
+            this.cBDestino.Location = new System.Drawing.Point(268, 163);
             this.cBDestino.Name = "cBDestino";
             this.cBDestino.Size = new System.Drawing.Size(192, 31);
             this.cBDestino.TabIndex = 10;
@@ -166,7 +168,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(379, 132);
+            this.label6.Location = new System.Drawing.Point(263, 132);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 28);
@@ -210,27 +212,34 @@
             this.btnCrearViaje.UseVisualStyleBackColor = false;
             this.btnCrearViaje.Click += new System.EventHandler(this.btnCrearViaje_Click);
             // 
-            // cBHoraSalida
+            // dtpHoraSalida
             // 
-            this.cBHoraSalida.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cBHoraSalida.FormattingEnabled = true;
-            this.cBHoraSalida.Items.AddRange(new object[] {
-            "7:00",
-            "8:00",
-            "9:00",
-            "10:00",
-            "11:00",
-            "12:00",
-            "13:00",
-            "14:00",
-            "15:00",
-            "16:00",
-            "17:00",
-            "18:00"});
-            this.cBHoraSalida.Location = new System.Drawing.Point(384, 250);
-            this.cBHoraSalida.Name = "cBHoraSalida";
-            this.cBHoraSalida.Size = new System.Drawing.Size(192, 31);
-            this.cBHoraSalida.TabIndex = 15;
+            this.dtpHoraSalida.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpHoraSalida.Location = new System.Drawing.Point(384, 254);
+            this.dtpHoraSalida.Name = "dtpHoraSalida";
+            this.dtpHoraSalida.Size = new System.Drawing.Size(179, 27);
+            this.dtpHoraSalida.TabIndex = 16;
+            // 
+            // dtpTiempoEstimado
+            // 
+            this.dtpTiempoEstimado.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpTiempoEstimado.Location = new System.Drawing.Point(508, 167);
+            this.dtpTiempoEstimado.Name = "dtpTiempoEstimado";
+            this.dtpTiempoEstimado.Size = new System.Drawing.Size(200, 27);
+            this.dtpTiempoEstimado.TabIndex = 18;
+            this.dtpTiempoEstimado.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(503, 136);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(173, 28);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Duración estimada:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // NuevoViaje
             // 
@@ -238,7 +247,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(796, 521);
-            this.Controls.Add(this.cBHoraSalida);
+            this.Controls.Add(this.dtpTiempoEstimado);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.dtpHoraSalida);
             this.Controls.Add(this.btnCrearViaje);
             this.Controls.Add(this.textCapacidad);
             this.Controls.Add(this.label7);
@@ -278,6 +289,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textCapacidad;
         private System.Windows.Forms.Button btnCrearViaje;
-        private System.Windows.Forms.ComboBox cBHoraSalida;
+        private System.Windows.Forms.DateTimePicker dtpHoraSalida;
+        private System.Windows.Forms.DateTimePicker dtpTiempoEstimado;
+        private System.Windows.Forms.Label label8;
     }
 }
