@@ -40,6 +40,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textApellido = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNom
@@ -170,10 +173,21 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(0)))), ((int)(((byte)(43)))));
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(560, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(396, 531);
             this.panel1.TabIndex = 17;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.Logo3;
+            this.pictureBox1.Location = new System.Drawing.Point(131, 199);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(161, 117);
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
             // 
             // RegistrarCuenta
             // 
@@ -196,6 +210,8 @@
             this.Name = "RegistrarCuenta";
             this.Text = "RegistrarCuenta";
             this.Load += new System.EventHandler(this.RegistrarCuenta_Load);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,5 +231,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textApellido;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
