@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Cliente
+    partial class ViajesReservados
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dGVViajesDisponibles = new System.Windows.Forms.DataGridView();
+            this.dGVViajesReservados = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -45,23 +43,21 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DuracionEstimada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reservar = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dGVViajesDisponibles)).BeginInit();
+            this.Cancelar = new System.Windows.Forms.DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVViajesReservados)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dGVViajesDisponibles
+            // dGVViajesReservados
             // 
-            this.dGVViajesDisponibles.AllowUserToAddRows = false;
-            this.dGVViajesDisponibles.AllowUserToDeleteRows = false;
-            this.dGVViajesDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dGVViajesDisponibles.BackgroundColor = System.Drawing.Color.White;
-            this.dGVViajesDisponibles.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dGVViajesDisponibles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dGVViajesDisponibles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dGVViajesReservados.AllowUserToAddRows = false;
+            this.dGVViajesReservados.AllowUserToDeleteRows = false;
+            this.dGVViajesReservados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dGVViajesReservados.BackgroundColor = System.Drawing.Color.White;
+            this.dGVViajesReservados.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dGVViajesReservados.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dGVViajesReservados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(0)))), ((int)(((byte)(43)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -69,43 +65,41 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dGVViajesDisponibles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dGVViajesDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVViajesDisponibles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dGVViajesReservados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dGVViajesReservados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGVViajesReservados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.prueba,
             this.Column2,
             this.Column1,
             this.Salida,
             this.Column3,
-            this.DuracionEstimada,
-            this.Column5,
-            this.Reservar});
-            this.dGVViajesDisponibles.EnableHeadersVisualStyles = false;
-            this.dGVViajesDisponibles.Location = new System.Drawing.Point(235, 198);
-            this.dGVViajesDisponibles.Margin = new System.Windows.Forms.Padding(4);
-            this.dGVViajesDisponibles.Name = "dGVViajesDisponibles";
-            this.dGVViajesDisponibles.ReadOnly = true;
-            this.dGVViajesDisponibles.RowHeadersVisible = false;
-            this.dGVViajesDisponibles.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.dGVViajesDisponibles.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dGVViajesDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGVViajesDisponibles.Size = new System.Drawing.Size(1053, 412);
-            this.dGVViajesDisponibles.TabIndex = 7;
-            this.dGVViajesDisponibles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVViajesDisponibles_CellContentClick);
+            this.Cancelar});
+            this.dGVViajesReservados.EnableHeadersVisualStyles = false;
+            this.dGVViajesReservados.Location = new System.Drawing.Point(213, 190);
+            this.dGVViajesReservados.Margin = new System.Windows.Forms.Padding(4);
+            this.dGVViajesReservados.Name = "dGVViajesReservados";
+            this.dGVViajesReservados.ReadOnly = true;
+            this.dGVViajesReservados.RowHeadersVisible = false;
+            this.dGVViajesReservados.RowHeadersWidth = 51;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dGVViajesReservados.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dGVViajesReservados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dGVViajesReservados.Size = new System.Drawing.Size(1053, 412);
+            this.dGVViajesReservados.TabIndex = 10;
+            this.dGVViajesReservados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVViajesReservados_CellContentClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(231, 49);
+            this.label1.Location = new System.Drawing.Point(214, 49);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(359, 46);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Viajes disponibles";
+            this.label1.Size = new System.Drawing.Size(354, 46);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Viajes reservados";
             // 
             // panel1
             // 
@@ -113,11 +107,11 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(14, -3);
+            this.panel1.Location = new System.Drawing.Point(-3, -3);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(208, 655);
-            this.panel1.TabIndex = 5;
+            this.panel1.TabIndex = 8;
             // 
             // pictureBox1
             // 
@@ -154,7 +148,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(196, 94);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Ver viajes reservados";
+            this.button1.Text = "Ver viajes disponibles";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -206,57 +200,33 @@
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
-            // DuracionEstimada
+            // Cancelar
             // 
-            this.DuracionEstimada.DataPropertyName = "duracionEstimada";
-            dataGridViewCellStyle3.Format = "t";
-            dataGridViewCellStyle3.NullValue = null;
-            this.DuracionEstimada.DefaultCellStyle = dataGridViewCellStyle3;
-            this.DuracionEstimada.HeaderText = "Duración estimada";
-            this.DuracionEstimada.MinimumWidth = 6;
-            this.DuracionEstimada.Name = "DuracionEstimada";
-            this.DuracionEstimada.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            this.Cancelar.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cancelar.HeaderText = "Cancelar Viaje";
+            this.Cancelar.MinimumWidth = 6;
+            this.Cancelar.Name = "Cancelar";
+            this.Cancelar.ReadOnly = true;
+            this.Cancelar.Text = "Cancelar";
+            this.Cancelar.UseColumnTextForButtonValue = true;
             // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "tarifa";
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column5.FillWeight = 85.64654F;
-            this.Column5.HeaderText = "Tarifa";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Reservar
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            this.Reservar.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Reservar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Reservar.HeaderText = "Reservar";
-            this.Reservar.MinimumWidth = 6;
-            this.Reservar.Name = "Reservar";
-            this.Reservar.ReadOnly = true;
-            this.Reservar.Text = "Reservar";
-            this.Reservar.UseColumnTextForButtonValue = true;
-            // 
-            // Cliente
+            // ViajesReservados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1302, 649);
-            this.Controls.Add(this.dGVViajesDisponibles);
+            this.ClientSize = new System.Drawing.Size(1268, 648);
+            this.Controls.Add(this.dGVViajesReservados);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Name = "Cliente";
-            this.Text = "Cliente";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Cliente_FormClosing);
-            this.Load += new System.EventHandler(this.Cliente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dGVViajesDisponibles)).EndInit();
+            this.Name = "ViajesReservados";
+            this.Text = "ViajesReservados";
+            this.Load += new System.EventHandler(this.ViajesReservados_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dGVViajesReservados)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -266,19 +236,18 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dGVViajesDisponibles;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+
+        private System.Windows.Forms.DataGridView dGVViajesReservados;
         private System.Windows.Forms.DataGridViewTextBoxColumn prueba;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Salida;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DuracionEstimada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewButtonColumn Reservar;
+        private System.Windows.Forms.DataGridViewButtonColumn Cancelar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }

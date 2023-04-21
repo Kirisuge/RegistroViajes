@@ -45,7 +45,7 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    respesta = "cliente";
+                    respesta = reader["idUsuario"].ToString();
                 }
             }
             //Cerrar la conexion
@@ -133,11 +133,11 @@ namespace WindowsFormsApp1
             conexion.Open();
 
             string query = "SELECT COUNT(*) FROM usuarios WHERE email = @Email";
-            int count = 0;
+             
 
             SqlCommand command = new SqlCommand(query, conexion);
             command.Parameters.AddWithValue("@Email", email);
-            count = (int)command.ExecuteScalar();
+            int count = (int)command.ExecuteScalar();
 
             conexion.Close();
 
@@ -159,9 +159,71 @@ namespace WindowsFormsApp1
             SqlDataAdapter adapter = new SqlDataAdapter(command);
 
 
-            DataTable dataTable= new DataTable();
+            DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
             dgv.DataSource = dataTable;
+
+            conexion.Close();
+        }
+        public void ActualizarTablaViajesReservados(string idUsuario, DataGridView dgv)
+        {
+            conexion.Open();
+            string queryBoletos = "SELECT idViaje FROM boletos WHERE idCliente=@idUsuario";
+            SqlCommand commandBoletos = new SqlCommand(queryBoletos, conexion);
+            commandBoletos.Parameters.AddWithValue("@idUsuario", idUsuario);
+            SqlDataReader readerBoletos = commandBoletos.ExecuteReader();
+
+
+            List<string> viajesUsuario = new List<string>();
+            while (readerBoletos.Read())
+            {
+                string idViaje = readerBoletos["idViaje"].ToString();
+                viajesUsuario.Add(idViaje);
+            }
+            readerBoletos.Close();
+            if (viajesUsuario.Count == 0)
+            {
+                MessageBox.Show("El usuario no tiene boletos comprados");
+                return;
+            }
+
+            string queryViajes = "SELECT idViaje, lugarSalida, destino, diaSalida, horaSalida FROM viajes WHERE idViaje IN (" + string.Join(",", viajesUsuario) + ")";
+            SqlCommand commandViajes = new SqlCommand(queryViajes, conexion);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(commandViajes);
+
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            dgv.DataSource = dataTable;
+
+
+            conexion.Close();
+
+        }
+        public void ReservarViaje(string idUsuario, string idViaje)
+        {
+            conexion.Open();
+            string query = "INSERT INTO boletos (idViaje,idCliente) " +
+                "VALUES (@idViaje,@idUsuario)";
+
+            SqlCommand command = new SqlCommand(query, conexion);
+            command.Parameters.AddWithValue("@idViaje", idViaje);
+            command.Parameters.AddWithValue("@idUsuario", idUsuario);
+            command.ExecuteNonQuery();
+
+
+            conexion.Close();
+        }
+        public void CancelarViaje(string idUsuario, string idViaje)
+        {
+            conexion.Open();
+            string query = "DELETE FROM boletos WHERE idViaje = @idViaje AND idCliente = @idUsuario";
+
+            SqlCommand command = new SqlCommand(query, conexion);
+            command.Parameters.AddWithValue("@idViaje", idViaje);
+            command.Parameters.AddWithValue("@idUsuario", idUsuario);
+            command.ExecuteNonQuery();
+
 
             conexion.Close();
         }

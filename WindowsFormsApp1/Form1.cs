@@ -43,8 +43,8 @@ namespace WindowsFormsApp1
                     this.Hide();
                     empleado.Show();
                     break;
-                case "cliente":
-                    Cliente cliente= new Cliente();
+                default:
+                    Cliente cliente= new Cliente(respuesta);
                     this.Hide();
                     cliente.Show();
                     break;

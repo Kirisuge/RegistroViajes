@@ -62,11 +62,16 @@ namespace WindowsFormsApp1
 
         private void label2_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Desea cerrar sesión?", "Advertencia", MessageBoxButtons.YesNoCancel) == DialogResult.Yes);
+            DialogResult dialogResult=MessageBox.Show("¿Desea cerrar sesión?", "Advertencia", MessageBoxButtons.YesNo);
+            switch (dialogResult)
             {
-                MenuInicio inicio = new MenuInicio();
-                this.Hide();
-                inicio.Show();
+                case DialogResult.Yes:
+                    MenuInicio inicio = new MenuInicio();
+                    this.Hide();
+                    inicio.Show();
+                    break;
+                case DialogResult.No:
+                    break;
             }
         }
     }

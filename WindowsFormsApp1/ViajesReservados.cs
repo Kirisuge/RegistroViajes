@@ -10,25 +10,14 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Cliente : Form
+    public partial class ViajesReservados : Form
     {
         private BaseDatos db = new BaseDatos();
         private string idUsuario;
-        public Cliente(string idUsuario)
+        public ViajesReservados(string idUsuario)
         {
             InitializeComponent();
             this.idUsuario = idUsuario;
-        }
-
-        private void Cliente_Load(object sender, EventArgs e)
-        {
-            ActualizarTabla();
-
-        }
-
-        private void Cliente_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -48,25 +37,30 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ViajesReservados viajesReservados = new ViajesReservados(idUsuario);
-            viajesReservados.Show();
+            Cliente cliente=new Cliente(idUsuario); 
+            cliente.Show();
             this.Hide();
         }
 
-        private void dGVViajesDisponibles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ViajesReservados_Load(object sender, EventArgs e)
         {
-            if (dGVViajesDisponibles.Columns[e.ColumnIndex].Name == "Reservar")
-            {
-                db.ReservarViaje(idUsuario, dGVViajesDisponibles.Rows[e.RowIndex].Cells[1].Value.ToString());
-                MessageBox.Show("Viaje reservado.");
-                
-            }
+            ActualizarTabla();
         }
+
         public void ActualizarTabla()
         {
-            db.ActualizarTablaViajes("SELECT idViaje, lugarSalida, destino, diaSalida, horaSalida, duracionEstimada, tarifa  FROM viajes", dGVViajesDisponibles);
+            db.ActualizarTablaViajesReservados(idUsuario, dGVViajesReservados);
         }
 
+        private void dGVViajesReservados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dGVViajesReservados.Columns[e.ColumnIndex].Name == "Cancelar")
+            {
+                db.CancelarViaje(idUsuario, dGVViajesReservados.Rows[e.RowIndex].Cells[1].Value.ToString());
+                MessageBox.Show("Viaje cancelado.");
+                ActualizarTabla();
 
+            }
+        }
     }
 }
